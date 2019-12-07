@@ -1,0 +1,109 @@
+{% load  staticfiles %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>AfferayMaroc</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+      <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+      <link href="{% static 'css/cropper.min.css' %}" rel="stylesheet">
+
+</head>
+<body   style="background:rgba(0,0,0,0.1);">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a  href="{% url "Homepage" %}">Afferay Maroc</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+           <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a  href="{% url "Createproduct" %}">Create Annonce</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            
+           <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a  href="{% url "contacts_view" %}">Contacts</a>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+          <div style="float: right;">
+            <form method='GET' action=''>
+                <input type='text' name='q' placeholder='Search' value='{{ request.GET.q }}'/>
+                <input class="btn btn-primary" type='submit' value='Search' />
+            </form>
+          </div>
+<hr>
+
+      
+      </nav>
+
+    </div>
+
+  		
+    
+
+    <div class="mt-2">
+      {% block slider %}
+
+      {% endblock%}
+    </div>
+      <div class="mt-2">
+
+        {% block javascript %}     
+        {% endblock%}
+      </div>
+
+
+
+    
+    <div class=" mx-1 row">
+        
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-10">
+                {% block body %}
+
+                {% endblock %}
+            </div>
+            <div class="col-sm-1">
+               
+            </div>
+             
+          </div>
+        </div>
+
+    </div>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+      <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'js/cropper.min.js' %}"></script>
+    <div class="">
+      {% block adds %}
+
+      {% endblock%}
+    </div>
+     
+  	</div>
+  
+
+      {% include "Product/footer.html" %}
+
+
+</body>

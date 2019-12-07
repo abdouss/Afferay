@@ -1,0 +1,36 @@
+{% extends "Product/base.html"%}
+{% load crispy_forms_tags %}
+
+{% block slider %}
+   <div class="">
+
+     <div class="row my-1 p-4 rounded text-center">
+
+      <div class="col-sm-9" style="background-color:white;">
+              <h2>Email Address</h2>
+              <p>yassine.karouach@gmail.com</p>
+              <h2>Phone Numbers</h2>
+              <p>+212663574010</p><hr>
+              <h2>
+                <span class="glyphicon glyphicon-envelope"></span>
+                <span>Email Us</span>
+              </h2>
+        <div>
+           <form method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+            <button class="btn btn-success my-2">
+              <span class="glyphicon glyphicon-send"></span>
+              <span>Email us</span>
+            </button>
+           </form>
+        </div>
+
+   </div>
+
+ 
+
+   </div>
+     
+   </div>
+{% endblock %}

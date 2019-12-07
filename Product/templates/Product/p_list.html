@@ -1,0 +1,15 @@
+{% extends 'Product/base.html' %}
+
+{% block slider %}
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+  {% for user in filter.qs %}
+    <li>{{ user.Nom_Produit }} - {{ user.Description }}</li>
+  {% empty %}
+   <li> Not existe that product </li>
+  {% endfor %}
+  </ul>
+{% endblock %}

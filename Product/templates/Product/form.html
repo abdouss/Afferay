@@ -1,0 +1,43 @@
+
+{% extends "Product/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% load thumbnail %}
+{% load cropping %}
+ 
+
+
+  <!-- FORM TO UPLOAD THE IMAGES -->
+  
+    
+
+  
+      
+{% block slider %}
+ <h1 class="page-header">Creation Annonce</h1>
+
+  <!-- FORM TO UPLOAD THE IMAGES -->
+    <div class='row'>
+     <div class="col-4"> 
+      <div class="card">
+       <div class="card-body">
+            <form method="post" enctype="multipart/form-data" id="formUpload">{% csrf_token %}
+                  {{ form|crispy}}
+                  {{ formset.as_p }}
+                  <br>
+                  <input class="btn btn-success" type="submit" value='Submit'>
+            </form>
+        </div>
+      </div>
+     </div>
+    </div>
+
+
+{% block simo %} {% endblock %}
+  
+ 
+
+  
+
+{% endblock %}

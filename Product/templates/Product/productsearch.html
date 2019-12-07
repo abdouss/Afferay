@@ -1,0 +1,31 @@
+{% extends "Product/base.html" %}
+
+
+{% block slider %}
+      
+
+
+    <hr>
+
+    <hr>
+
+    {% for product in query_list %}
+          {% if request.GET.q %}
+           <div class="list-group">
+              <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <small>{{ produit.Nom_Produit }}  <b>
+                  </b></small>
+                      <small>{{ produit.Description }}  <b>
+                  </b></small>
+                </div>
+              </div>
+            </div>
+
+          {% endif %}
+    {% empty %}
+      <h1>No product for this name </h1>
+    {% endfor %}
+
+
+{% endblock  %}

@@ -1,0 +1,34 @@
+{% extends "Product/base.html" %}
+{% block slider %}
+
+  <div class="col-sm-3 text-center p-2 my-1">
+
+
+     <div class="p-2 my-2 rounded" style="box-shadow:2px 2px 2px 2px gray;" id="related_item">
+      
+       <p><b>
+
+          <span style="color:red; background-color:yellow;">
+                {{proddetail.Nom_Produit}}
+
+          </span> 
+      <div class="row gallery">
+        {% for p in proddetail.images_set.all %}
+          <div class="col-md-3">
+                      <img src="{{ p.image.url }}"  class="thumbnail" style="max-width: 100%;">
+
+          </div>
+        {% endfor %}
+      </div>
+                     <p> {{proddetail.Price}}</p>
+
+     </div>
+        </b></p>
+     </div>
+    
+  </div>
+
+
+
+{% endblock %}
+
